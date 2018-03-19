@@ -8,6 +8,8 @@
 
 #ifndef BinaryItem_h
 #define BinaryItem_h
+#include <string>
+using namespace std;
 
 class BinaryItem
 {
@@ -21,6 +23,8 @@ public:
     void print();
     BinaryItem& increase();
     bool isMaxValue();
+    BinaryItem& setLength(int length);
+    BinaryItem& setValue(string str);
 };
 
 

@@ -27,7 +27,7 @@ int main()
     {
         return EXIT_FAILURE;
     }
-    
+    BinaryItem item2 = BinaryItem();
     BinaryItem item = BinaryItem(length);
     
     while (!item.isMaxValue())

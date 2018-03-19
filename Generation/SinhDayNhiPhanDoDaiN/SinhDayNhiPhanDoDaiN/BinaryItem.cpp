@@ -13,14 +13,12 @@ using namespace std;
 
 BinaryItem::BinaryItem()
 {
-    cout << "constructor 1";
     this->length = 0;
     this->value = NULL;
 }
 
 BinaryItem::BinaryItem(int length)
 {
-    cout << "constructor 2";
     this->length = length;
     this->value = new int[length];
     for (int i = 0; i < length; i++) {
@@ -31,6 +29,48 @@ BinaryItem::BinaryItem(int length)
 BinaryItem::~BinaryItem()
 {
     delete [] this->value;
+}
+
+BinaryItem& BinaryItem::setLength(int length)
+{
+    delete this->value;
+    this->length = length;
+    this->value = new int[length];
+    for (int i = 0; i < length; i++) {
+        this->value[i] = 0;
+    }
+    return *this;
+}
+
+BinaryItem& BinaryItem::setValue(string str)
+{
+    long index = str.length() - 1;
+    char character;
+    for (int i = this->length - 1; i >= 0; i--)
+    {
+        if (index < 0)
+        {
+            this->value[i] = 0;
+        }
+        else
+        {
+            character = str.at(index);
+            if (character == '1')
+            {
+                this->value[i] = 1;
+            }
+            else if (character == '0')
+            {
+                this->value[i] = 0;
+            }
+            else
+            {
+                this->value[i] = 0;
+            }
+            index--;
+        }
+    }
+    return *this;
 }
 
 void BinaryItem::print()
