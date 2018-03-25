@@ -61,10 +61,13 @@ void getInput(int& k, int& n)
 
 void writeResultTo(ofstream& result, Combination& item)
 {
-    result << "[" << item.value[0];
-    for (int i = 1; i < item.k; i++)
+    if (item.value != NULL)
     {
-        result << ", " << item.value[i];
+        result << "[" << item.value[0];
+        for (int i = 1; i < item.k; i++)
+        {
+            result << ", " << item.value[i];
+        }
+        result << "]" << endl;
     }
-    result << "]" << endl;
 }

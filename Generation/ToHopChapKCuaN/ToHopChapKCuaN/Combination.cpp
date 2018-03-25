@@ -22,10 +22,17 @@ Combination::Combination(int k, int n)
 {
     this->n = n;
     this->k = k;
-    this->value = new int[k];
-    for (int i = 0; i < k; i++)
+    if (k != 0)
     {
-        this->value[i] = i;
+        this->value = new int[k];
+        for (int i = 0; i < k; i++)
+        {
+            this->value[i] = i;
+        }
+    }
+    else
+    {
+        this->value = NULL;
     }
 }
 
@@ -65,12 +72,15 @@ void Combination::print()
 {
     if (value != NULL)
     {
-        cout << "[" << value[0];
-        for (int i = 1; i < k; i++)
+        if (k > 0)
         {
-            cout << ", " << value[i];
+            cout << "[" << value[0];
+            for (int i = 1; i < k; i++)
+            {
+                cout << ", " << value[i];
+            }
+            cout << "]" << endl;
         }
-        cout << "]" << endl;
     }
 }
 
