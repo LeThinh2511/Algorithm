@@ -16,6 +16,8 @@ void getInputFromFile(int& k, int& n);
 
 int main()
 {
+    
+    /*
     int k = 0;
     int n = 0;
     int count = 1;
@@ -36,6 +38,7 @@ int main()
     }
     item.print();
     cout << endl << "Number of item: " << count << endl;
+     */
     return 0;
 }
 
