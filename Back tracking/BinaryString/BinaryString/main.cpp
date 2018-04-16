@@ -55,10 +55,11 @@ void showResult(BinaryItem item, int observer)
     }
     else
     {
-        item.value[observer] = 0;
-        showResult(item, observer + 1);
-        item.value[observer] = 1;
-        showResult(item, observer + 1);
+        for (int i = 0; i < 2; i++)
+        {
+            item.value[observer] = i;
+            showResult(item, observer + 1);
+        }
     }
 }
 
