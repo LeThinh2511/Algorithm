@@ -15,19 +15,34 @@ BinaryItem::BinaryItem()
 {
     this->length = 0;
     this->value = NULL;
+    //cout << "constructor 1" << endl;
+}
+
+BinaryItem::BinaryItem(const BinaryItem& item)
+{
+    this->length = item.length;
+    this->value = new int[this->length];
+    for (int i = 0; i < this->length; i++)
+    {
+        this->value[i] = item.value[i];
+    }
+    //cout << "copy constructor" << endl;
 }
 
 BinaryItem::BinaryItem(int length)
 {
     this->length = length;
     this->value = new int[length];
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < length; i++)
+    {
         this->value[i] = 0;
     }
+    //cout << "constructor 2" << endl;
 }
 
 BinaryItem::~BinaryItem()
 {
+    //cout << "delete " << endl;
     delete [] this->value;
 }
 

@@ -18,6 +18,7 @@ public:
     int length;
 public:
     BinaryItem();
+    BinaryItem(const BinaryItem&);
     BinaryItem(int length);
     ~BinaryItem();
     void print();
