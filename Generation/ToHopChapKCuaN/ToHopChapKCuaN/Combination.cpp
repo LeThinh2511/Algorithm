@@ -18,6 +18,17 @@ Combination::Combination()
     this->value = NULL;
 }
 
+Combination::Combination(const Combination& item)
+{
+    this->n = item.n;
+    this->k = item.k;
+    this->value = new int[k];
+    for (int i = 0; i < k; i++)
+    {
+        this->value[i] = item.value[i];
+    }
+}
+
 Combination::Combination(int k, int n)
 {
     this->n = n;
@@ -80,6 +91,33 @@ void Combination::print()
                 cout << ", " << value[i];
             }
             cout << "]" << endl;
+        }
+    }
+}
+
+void Combination::listAllCombination(int observer)
+{
+    if (observer == this->k)
+    {
+        this->print();
+    }
+    else
+    {
+        if (observer == 0)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                value[0] = i;
+                listAllCombination(observer + 1);
+            }
+        }
+        else
+        {
+            for (int i = value[observer - 1] + 1; i <= n - k + observer; i++)
+            {
+                this->value[observer] = i;
+                this->listAllCombination(observer + 1);
+            }
         }
     }
 }

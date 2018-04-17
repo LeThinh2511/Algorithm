@@ -18,8 +18,10 @@ public:
 public:
     Combination();
     Combination(int k, int n);
+    Combination(const Combination&);
     ~Combination();
     Combination& nextGeneration();
+    void listAllCombination(int observer = 0);
     bool isMaxItem();
     void print();
 };
